@@ -6,6 +6,10 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! s:toggle_split_orientation() abort
+  if winnr('$') == 1
+    return
+  endif
+
   let nr = winnr()
   let pos = getpos('.')
   wincmd t
